@@ -1,0 +1,15 @@
+SELECT DISTINCT "customers"."customer_id", "customers"."company_name"
+FROM "customers"
+JOIN "orders" ON "customers"."customer_id" = "orders"."customer_id"
+WHERE "orders"."order_date" = ( SELECT MAX("order_date")FROM "orders"
+);
+
+
+SELECT "product_name", "unit_price" FROM "products"
+WHERE "unit_price" > ( SELECT "unit_price" FROM "products"
+WHERE "product_name" = 'Carnarvon Tigers'
+);
+
+
+
+
